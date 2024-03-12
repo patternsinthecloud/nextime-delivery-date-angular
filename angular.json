@@ -23,7 +23,7 @@
               "src/styles.css",
               "./node_modules/material-symbols/index.css"
             ],
-            "scripts": []
+            "scripts": ["./node_modules/nextime-delivery-date/bundle.js"]
           },
           "configurations": {
             "production": {
@@ -62,7 +62,8 @@
               "browserTarget": "qpilot-delivery-date-angular:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {}
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -80,7 +81,7 @@
               "src/styles.css",
               "./node_modules/material-symbols/index.css"
             ],
-            "scripts": []
+            "scripts": ["./node_modules/nextime-delivery-date/bundle.js"]
           }
         }
       }

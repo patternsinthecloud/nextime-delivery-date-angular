@@ -1,0 +1,181 @@
+<div class="container">
+  <h1>
+    My Subscription Box:
+    <select *ngIf="siteId" [(ngModel)]="selectedOrder">
+      <option *ngFor="let order of mockData[siteId].orders" [ngValue]="order">
+        {{ order.orderId }}
+      </option>
+    </select>
+  </h1>
+</div>
+<div class="container d-flex">
+  <div class="left-col">
+    <div class="next-order-box">
+      <p>
+        Your next order will be processed on
+        <select
+          *ngIf="siteId"
+          [(ngModel)]="orderDate"
+          (change)="handleOrderDateChange($event)"
+        >
+          <option *ngFor="let date of orderDates" [value]="date">
+            {{ date }}
+          </option>
+        </select>
+      </p>
+      <p>
+        and delivered to
+        <strong>{{ selectedAddress?.street }}</strong> on
+        <strong *ngIf="deliveryDate"
+          >{{ deliveryDate | date : "EEEE, MMMM d"
+          }}{{ deliveryDate | date : "d" | dateSuffix }}</strong
+        >
+        <span *ngIf="!deliveryDate">no delivery date.</span>
+      </p>
+      <p *ngIf="deliveryDate">
+        Please make changes to your next order
+        <strong>before {{ getOlderDay(deliveryDate) }} @ 11:59pm</strong>
+        for {{ deliveryDate | date : "EEEE" }} Delivery.
+      </p>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th></th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="siteId === 8">
+          <td>
+            <img
+              style="width: 120px; height: 120px"
+              src="assets/images/image2.png"
+            />
+          </td>
+          <td>
+            <p>Juice Cleanse Subscription</p>
+            <p>{{ selectedOrder?.items?.length }} Item(s)</p>
+          </td>
+        </tr>
+
+        <tr *ngFor="let order of selectedOrder?.items">
+          <td>
+            <img style="width: 120px; height: 120px" [src]="order.imageUrl" />
+          </td>
+          <td>
+            <p>{{ order.title }}</p>
+          </td>
+          <td>
+            {{ order.qty }}
+          </td>
+          <td>
+            {{ order.regularPrice }}
+          </td>
+          <td>
+            {{ order.qty * order.regularPrice }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="total" *ngIf="returnedObject?.shippingLine">
+      <div *ngIf="this.selectedOrder" class="total-row">
+        <span>Subtotal</span>
+        <span>{{ getTotal() | currency : "USD" : "symbol" : "1.2-2" }}</span>
+      </div>
+      <div class="total-row">
+        <span
+          >Shipping
+          <span class="total-thin"
+            >({{ returnedObject?.shippingLine?.name }})</span
+          ></span
+        >
+        <span>{{
+          returnedObject?.shippingLine?.total
+            | currency : "USD" : "symbol" : "1.2-2"
+        }}</span>
+      </div>
+      <div
+        *ngIf="returnedObject?.shippingLine as shippingLine"
+        class="total-row"
+      >
+        <span>Total</span>
+        <span>{{
+          shippingLine.total + getTotal()
+            | currency : "USD" : "symbol" : "1.2-2"
+        }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="widgets">
+    <div class="skip-box">Skip 1 Week</div>
+    <div class="deliver-box">
+      Deliver Every: 2 Weeks
+      <div class="chevron">
+        <div
+          style="
+            width: 14.85px;
+            height: 0px;
+            left: 0px;
+            top: 0px;
+            position: absolute;
+            transform: rotate(45deg);
+            transform-origin: 0 0;
+            border: 1px black solid;
+          "
+        ></div>
+        <div
+          style="
+            width: 14.85px;
+            height: 0px;
+            left: 21px;
+            top: 0px;
+            position: absolute;
+            transform: rotate(135deg);
+            transform-origin: 0 0;
+            border: 1px black solid;
+          "
+        ></div>
+      </div>
+    </div>
+    <div class="ships-to-box">
+      <h2 *ngIf="selectedDelivery">
+        Delivery via <span class="underline">{{ selectedDelivery }}</span>
+      </h2>
+      <p>Ships To:</p>
+      <select *ngIf="siteId" [(ngModel)]="selectedAddress">
+        <option
+          *ngFor="let address of mockData[siteId].addresses"
+          [ngValue]="address"
+        >
+          {{ address.name || "Address" }}
+        </option>
+      </select>
+    </div>
+    <!-- <qpilot-delivery-date
+      *ngIf="selectedOrderDate && siteId && selectedAddress && selectedOrder"
+      [orderDate]="selectedOrderDate | json"
+      [siteId]="siteId"
+      [shippingAddress]="selectedAddress | json"
+      [order]="selectedOrder | json"
+      (onDateUpdate)="handleDateUpdate($event)"
+    ></qpilot-delivery-date> -->
+    <nextime-delivery-date
+      *ngIf="selectedOrderDate && siteId && selectedAddress && selectedOrder"
+      [orderdate]="selectedOrderDate"
+      [siteid]="siteId"
+      [shippingaddress]="selectedAddress | json"
+      [order]="selectedOrder | json"
+      (onDateUpdate)="handleDateUpdate($event)"
+    ></nextime-delivery-date>
+  </div>
+</div>
+<button *ngIf="returnedObject" class="json-button" (click)="toggleJson()">
+  Toggle JSON
+</button>
+<div *ngIf="returnedObject && showJson" class="json-container">
+  <ngx-json-viewer [json]="returnedObject"></ngx-json-viewer>
+</div>
