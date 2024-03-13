@@ -21,9 +21,10 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "src/styles.css",
-              "./node_modules/material-symbols/index.css"
+              "./node_modules/material-symbols/index.css",
+              "./node_modules/nextime-delivery-date/styles.css"
             ],
-            "scripts": ["./node_modules/nextime-delivery-date/bundle.js"]
+            "scripts": []
           },
           "configurations": {
             "production": {
