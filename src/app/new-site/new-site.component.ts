@@ -256,9 +256,9 @@ export class NewSiteComponent {
       this.selectedDelivery = evt.detail?.shippingLine?.name;
 
       if (evt.detail?.shippingLine?.nextOrderDate) {
-        const newOrderDate = moment(
-          evt.detail.shippingLine.nextOrderDate
-        ).format('YYYY-MM-DD');
+        const newOrderDate = moment
+          .utc(evt.detail.shippingLine.nextOrderDate)
+          .format('YYYY-MM-DD');
 
         if (!this.orderDates.includes(newOrderDate.toString())) {
           this.orderDates.push(newOrderDate);
