@@ -60,6 +60,7 @@ export class NewSiteComponent {
   siteId: number | undefined;
   returnedObject?: ShippingDetails;
   showJson = false;
+  momentjs = moment;
 
   mockData: shippingData = {
     1: {
@@ -246,9 +247,9 @@ export class NewSiteComponent {
     if (evt instanceof CustomEvent) {
       this.returnedObject = evt.detail;
       if (evt.detail.deliveryDate) {
-        this.deliveryDate = moment(evt.detail.deliveryDate).format(
-          'YYYY-MM-DD'
-        );
+        this.deliveryDate = moment
+          .utc(evt.detail.deliveryDate)
+          .format('YYYY-MM-DD');
       } else {
         this.deliveryDate = undefined;
       }
