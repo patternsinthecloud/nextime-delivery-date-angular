@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
 
@@ -61,6 +63,7 @@ export class NewSiteComponent {
   returnedObject?: ShippingDetails;
   showJson = false;
   momentjs = moment;
+  date = new FormControl(new Date());
 
   mockData: shippingData = {
     1: {
@@ -214,22 +217,8 @@ export class NewSiteComponent {
     },
   };
 
-  orderDates = [
-    '2024-03-09',
-    '2024-03-10',
-    '2024-03-11',
-    '2024-03-12',
-    '2024-03-13',
-    '2024-03-14',
-    '2024-03-15',
-    '2024-03-16',
-    '2024-03-17',
-    '2024-03-18',
-  ];
-
   selectedAddress: Address | undefined;
   selectedOrder: Order | undefined;
-  orderDate: string | undefined;
   selectedOrderDate: string | undefined;
   selectedDelivery: string | undefined;
   showOrderDate: string | undefined;
@@ -260,16 +249,19 @@ export class NewSiteComponent {
           .utc(evt.detail.shippingLine.nextOrderDate)
           .format('YYYY-MM-DD');
 
-        if (!this.orderDates.includes(newOrderDate.toString())) {
-          this.orderDates.push(newOrderDate);
-        }
-        this.orderDate = newOrderDate;
+        this.date.setValue(moment.utc(newOrderDate).toDate());
       }
     }
   }
 
   toggleJson() {
     this.showJson = !this.showJson;
+  }
+
+  handleProcessingDateChange(
+    event: MatDatepickerInputEvent<moment.Moment, any>
+  ) {
+    this.selectedOrderDate = event.value?.format('YYYY-MM-DD');
   }
 
   handleOrderDateChange(event: Event) {
@@ -290,8 +282,9 @@ export class NewSiteComponent {
 
       this.selectedAddress = this.mockData[this.siteId].addresses[0];
       this.selectedOrder = this.mockData[this.siteId].orders[0];
-      this.orderDate = this.orderDates[0];
-      this.selectedOrderDate = this.orderDate;
+      this.selectedOrderDate = moment(this.date.value)
+        .add('day')
+        .format('YYYY-MM-DD');
     });
   }
 }
