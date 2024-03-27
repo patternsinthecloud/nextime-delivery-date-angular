@@ -57,10 +57,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "qpilot-delivery-date-angular:build:production"
+              "buildTarget": "qpilot-delivery-date-angular:build:production"
             },
             "development": {
-              "browserTarget": "qpilot-delivery-date-angular:build:development"
+              "buildTarget": "qpilot-delivery-date-angular:build:development"
             }
           },
           "defaultConfiguration": "development",
@@ -69,7 +69,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "qpilot-delivery-date-angular:build"
+            "buildTarget": "qpilot-delivery-date-angular:build"
           }
         },
         "test": {
