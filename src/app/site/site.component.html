@@ -13,15 +13,20 @@
     <div class="next-order-box">
       <p>
         Your next order will be processed on
-        <select
-          *ngIf="siteId"
-          [(ngModel)]="orderDate"
-          (change)="handleOrderDateChange($event)"
-        >
-          <option *ngFor="let date of orderDates" [value]="date">
-            {{ date }}
-          </option>
-        </select>
+        <mat-form-field appearance="fill">
+          <mat-label>Choose a date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            [formControl]="date"
+            (dateChange)="handleProcessingDateChange($event)"
+          />
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
       </p>
       <p>
         and delivered to
