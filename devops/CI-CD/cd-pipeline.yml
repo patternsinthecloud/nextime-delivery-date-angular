@@ -1,0 +1,32 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pr: none
+
+resources:
+  repositories:
+    - repository: nextime-devops-templates
+      type: GitHub
+      name: patternsinthecloud/nextime-devops-templates
+      ref: refs/heads/main
+      endpoint: Nextime.ai DatePicker
+
+pool:
+  vmImage: "ubuntu-latest"
+stages:
+  - template: templates/template.yml@nextime-devops-templates
+    parameters:
+      azureSubscriptionServiceConnection: sc-nextime-dev
+      buildProject:
+      projectName:
+      projectSlug:
+      pathToPublish:
+      appName: qpilot-delivery-date-angular
+      appType: staticWebApp
+      keyVaultName:
+      infraProject:
+      skipGitleaks: true
+      skipSemGrep: true
+      skipDatabase: true
