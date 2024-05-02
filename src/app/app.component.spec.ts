@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'qpilot-delivery-date-angular'`, () => {
+  it(`should have as title 'nextime-delivery-date-angular'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('qpilot-delivery-date-angular');
+    expect(app.title).toEqual('nextime-delivery-date-angular');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('qpilot-delivery-date-angular app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('nextime-delivery-date-angular app is running!');
   });
 });

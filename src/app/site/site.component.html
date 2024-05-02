@@ -160,14 +160,15 @@
         </option>
       </select>
     </div>
-    <qpilot-delivery-date
+    <nextime-delivery-date
       *ngIf="selectedOrderDate && siteId && selectedAddress && selectedOrder"
       [orderDate]="selectedOrderDate | json"
       [siteId]="siteId"
       [shippingAddress]="selectedAddress | json"
       [order]="selectedOrder | json"
+      [apiReadonlyToken]="apiReadonlyToken"
       (onDateUpdate)="handleDateUpdate($event)"
-    ></qpilot-delivery-date>
+    ></nextime-delivery-date>
   </div>
 </div>
 <button *ngIf="returnedObject" class="json-button" (click)="toggleJson()">

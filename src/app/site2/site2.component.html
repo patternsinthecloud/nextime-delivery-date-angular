@@ -100,7 +100,7 @@
           </select>
 
           <div class="d-flex justify-center mb-4">
-            <qpilot-delivery-date
+            <nextime-delivery-date
               *ngIf="
                 selectedDeliveryDate &&
                 siteId &&
@@ -111,7 +111,8 @@
               [siteId]="siteId"
               [shippingAddress]="selectedAddress | json"
               [order]="selectedOrder | json"
-            ></qpilot-delivery-date>
+              [apiReadonlyToken]="apiReadonlyToken"
+            ></nextime-delivery-date>
           </div>
 
           <button

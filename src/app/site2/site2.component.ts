@@ -30,7 +30,6 @@ interface Order {
   templateUrl: './site2.component.html',
 })
 export class Site2Component {
-  siteId: number | undefined;
 
   addresses: Address[] = [
     {
@@ -177,6 +176,8 @@ export class Site2Component {
   selectedAddress: Address | undefined;
   selectedOrder: Order | undefined;
   selectedDeliveryDate: string | undefined;
+  siteId: number | undefined;
+  apiReadonlyToken: string = 'a1sd34f4fg5';
 
   updateShippingAddress(address: string) {
     this.selectedAddress = JSON.parse(address);

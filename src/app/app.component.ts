@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'qpilot-delivery-date-angular';
+  title = 'nextime-delivery-date-angular';
   siteId: number | undefined;
 
   constructor(private route: ActivatedRoute) {}
