@@ -223,6 +223,7 @@ export class SiteComponent {
   showOrderDate: string | undefined;
   deliveryDate: string | undefined;
   date = new FormControl(new Date());
+  apiReadonlyToken: string = 'a1sd34f4fg5';
 
   getOlderDay(date: string | undefined) {
     if (!date) return '';
