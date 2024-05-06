@@ -47,10 +47,12 @@ interface Order {
 }
 
 interface shippingData {
-  [key: number]: {
-    addresses: Address[];
-    orders: Order[];
-  };
+  [key: number]: mockData
+}
+
+interface mockData {
+  addresses: Address[];
+  orders: Order[];
 }
 
 @Component({
@@ -62,6 +64,75 @@ export class SiteComponent {
   siteId: number | undefined;
   returnedObject?: ShippingDetails;
   showJson = false;
+
+  beautyLoopMockData: mockData = {
+    addresses: [
+      {
+        street: '2108 S Lamar Blvd',
+        city: 'Austin',
+        state: 'TX',
+        country: 'US',
+        postalCode: '78704',
+        name: '2108 S Lamar Blvd',
+      },
+    ],
+    orders: [
+      {
+        orderId: '2002',
+        items: [
+          {
+            id: 773779,
+            productId: '11042',
+            qty: 1,
+            regularPrice: 81.0,
+            salePrice: 76.95,
+            imageUrl: 'assets/images/image6.png',
+            title: 'BAMBOO Eau de Parfum 1 oz.',
+            description:
+              "Strong and graceful, one of GUCCI's most recognizable design signatures has defined references in today's GUCCI woman.",
+          },
+          {
+            id: 946054,
+            productId: '11015',
+            qty: 1,
+            regularPrice: 27.55,
+            salePrice: 27.55,
+            imageUrl: 'assets/images/image5.png',
+            title: 'Le Labo Shampoo 8.5 oz',
+            description:
+              'A thick, rich, deeply nourishing shampoo. This plant-based formula is made with macadamia to repair.',
+          },
+        ],
+      },
+      {
+        orderId: '2001',
+        items: [
+          {
+            id: 804091,
+            productId: '11042',
+            qty: 1,
+            regularPrice: 29.0,
+            salePrice: 29.0,
+            imageUrl: 'assets/images/image7.png',
+            title: 'It Cosmetics Confidence in a Cleanser',
+            description:
+              'Suitable for all skin types, this is a revolutionary one-step, hydrating cleanser that melts away dirt, oil, and makeup.',
+          },
+          {
+            id: 1029226,
+            productId: '11048',
+            qty: 1,
+            regularPrice: 39.0,
+            salePrice: 36.0,
+            imageUrl: 'assets/images/image8.png',
+            title: 'Anti-Aging Cleansing Gel 8.5 oz',
+            description:
+              'Helps to effectively detoxify the pores. Oil free and anti wrinkle technology.',
+          },
+        ],
+      },
+    ],
+  };
 
   mockData: shippingData = {
     1: {
@@ -145,74 +216,38 @@ export class SiteComponent {
         },
       ],
     },
-    3: {
+    3: this.beautyLoopMockData,
+    4: this.beautyLoopMockData,
+    5: {
       addresses: [
         {
-          street: '2108 S Lamar Blvd',
-          city: 'Austin',
-          state: 'TX',
-          country: 'US',
-          postalCode: '78704',
-          name: '2108 S Lamar Blvd',
+          name: "120 5th Avenue",
+          street:"120 5th Avenue",
+          city:"New York",
+          state:"NY",
+          country:"US",
+          postalCode:"10011"
         },
       ],
       orders: [
         {
-          orderId: '2002',
-          items: [
+          orderId: '11493',
+          items:[
             {
-              id: 773779,
-              productId: '11042',
-              qty: 1,
-              regularPrice: 81.0,
-              salePrice: 76.95,
-              imageUrl: 'assets/images/image6.png',
-              title: 'BAMBOO Eau de Parfum 1 oz.',
-              description:
-                "Strong and graceful, one of GUCCI's most recognizable design signatures has defined references in today's GUCCI woman.",
-            },
-            {
-              id: 946054,
-              productId: '11015',
-              qty: 1,
-              regularPrice: 27.55,
-              salePrice: 27.55,
-              imageUrl: 'assets/images/image5.png',
-              title: 'Le Labo Shampoo 8.5 oz',
-              description:
-                'A thick, rich, deeply nourishing shampoo. This plant-based formula is made with macadamia to repair.',
-            },
-          ],
-        },
-        {
-          orderId: '2001',
-          items: [
-            {
-              id: 804091,
-              productId: '11042',
-              qty: 1,
-              regularPrice: 29.0,
-              salePrice: 29.0,
-              imageUrl: 'assets/images/image7.png',
-              title: 'It Cosmetics Confidence in a Cleanser',
-              description:
-                'Suitable for all skin types, this is a revolutionary one-step, hydrating cleanser that melts away dirt, oil, and makeup.',
-            },
-            {
-              id: 1029226,
-              productId: '11048',
-              qty: 1,
-              regularPrice: 39.0,
-              salePrice: 36.0,
-              imageUrl: 'assets/images/image8.png',
-              title: 'Anti-Aging Cleansing Gel 8.5 oz',
-              description:
-                'Helps to effectively detoxify the pores. Oil free and anti wrinkle technology.',
-            },
-          ],
+              id: 967275,
+              productId:"46700115001661",
+              qty:3,
+              regularPrice:10,
+              salePrice:9,
+              imageUrl: 'assets/images/image3.png',
+              title: 'Ritual Greens',
+              description: 'Ritual Greens',
+            }
+         ],
         },
       ],
     },
+    7: this.beautyLoopMockData,
   };
 
   selectedAddress: Address | undefined;
