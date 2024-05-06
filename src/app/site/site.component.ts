@@ -278,7 +278,7 @@ export class SiteComponent {
       } else {
         this.deliveryDate = undefined;
       }
-      this.selectedDelivery = evt.detail?.shippingLine?.name;
+      this.selectedDelivery = evt.detail?.shippingLine?.shippingMethod;
 
       if (evt.detail?.shippingLine?.nextOrderDate) {
         const newOrderDate = moment
