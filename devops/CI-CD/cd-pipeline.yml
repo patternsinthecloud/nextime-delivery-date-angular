@@ -29,4 +29,3 @@ stages:
       infraProject:
       skipGitleaks: true
       skipSemGrep: true
-      skipDatabase: true
