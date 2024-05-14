@@ -7,16 +7,16 @@ pr: none
 
 resources:
   repositories:
-    - repository: nextime-devops-templates
+    - repository: devops-templates
       type: GitHub
-      name: patternsinthecloud/nextime-devops-templates
+      name: patternsinthecloud/devops-templates
       ref: refs/heads/main
       endpoint: Nextime.ai DatePicker
 
 pool:
   vmImage: "ubuntu-latest"
 stages:
-  - template: templates/template.yml@nextime-devops-templates
+  - template: templates/template.yml@devops-templates
     parameters:
       azureSubscriptionServiceConnection: sc-nextime-dev
       buildProject:
