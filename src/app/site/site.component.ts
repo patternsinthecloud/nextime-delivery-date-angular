@@ -279,14 +279,6 @@ export class SiteComponent {
         this.deliveryDate = undefined;
       }
       this.selectedDelivery = evt.detail?.shippingLine?.shippingMethod;
-
-      if (evt.detail?.shippingLine?.nextOrderDate) {
-        const newOrderDate = moment
-          .utc(evt.detail.shippingLine.nextOrderDate)
-          .format('YYYY-MM-DD');
-
-        this.date.setValue(moment.utc(newOrderDate).toDate());
-      }
     }
   }
 
