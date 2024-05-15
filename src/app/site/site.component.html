@@ -162,7 +162,7 @@
     </div>
     <nextime-delivery-date
       *ngIf="selectedOrderDate && siteId && selectedAddress && selectedOrder"
-      [orderDate]="selectedOrderDate | json"
+      [orderDate]="selectedOrderDate"
       [siteId]="siteId"
       [shippingAddress]="selectedAddress | json"
       [order]="selectedOrder | json"
