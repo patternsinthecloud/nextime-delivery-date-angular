@@ -285,7 +285,7 @@ export class SiteComponent {
   handleProcessingDateChange(
     event: MatDatepickerInputEvent<moment.Moment, any>
   ) {
-    this.selectedOrderDate = event.value?.format('YYYY-MM-DD');
+    this.selectedOrderDate = event.value?.format('YYYY-MM-DD[T]HH:mm:ss[Z]');
   }
 
   toggleJson() {
@@ -312,7 +312,7 @@ export class SiteComponent {
       this.selectedOrder = this.mockData[this.siteId].orders[0];
       this.selectedOrderDate = moment(this.date.value)
         .add('day')
-        .format('YYYY-MM-DD');
-    });
+        .format('YYYY-MM-DD[T]HH:mm:ss[Z]');
+      });
   }
 }
