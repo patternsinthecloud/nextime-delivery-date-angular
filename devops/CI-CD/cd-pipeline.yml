@@ -19,12 +19,8 @@ stages:
   - template: templates/template.yml@devops-templates
     parameters:
       azureSubscriptionServiceConnection: sc-nextime-dev
-      buildProject:
-      projectName:
-      projectSlug:
-      pathToPublish:
+      pathToPublish: dist/qpilot-delivery-date-angular
       appName: qpilot-delivery-date-angular
       appType: staticWebApp
-      keyVaultName:
       skipGitleaks: true
       skipSemGrep: true
