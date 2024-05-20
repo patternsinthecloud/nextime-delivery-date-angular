@@ -20,7 +20,6 @@ stages:
     parameters:
       azureSubscriptionServiceConnection: sc-nextime-dev
       pathToPublish: dist/qpilot-delivery-date-angular
-      appName: qpilot-delivery-date-angular
       appType: staticWebApp
       skipGitleaks: true
       skipSemGrep: true
