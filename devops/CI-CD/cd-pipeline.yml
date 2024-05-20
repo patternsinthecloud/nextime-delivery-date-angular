@@ -26,6 +26,5 @@ stages:
       appName: qpilot-delivery-date-angular
       appType: staticWebApp
       keyVaultName:
-      infraProject:
       skipGitleaks: true
       skipSemGrep: true
