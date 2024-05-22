@@ -13,7 +13,7 @@ Scope will be set as:
 
 This means that, for every package that has the @nextime scope defined, will be referenced to our custom feed.
 
-The feed can be located [here](https://nextimeai.visualstudio.com/Nextime.ai%20DatePicker/_artifacts/feed/QPilot.cloud)
+The feed can be located [here](https://nextimeai.visualstudio.com/Nextime.ai%20DatePicker/_artifacts/feed/Nextime)
 
 To authenticate to it you should use vsts authentication.
 
@@ -22,13 +22,13 @@ To authenticate to it you should use vsts authentication.
 1. Run `npm install -g vsts-npm-auth` in CMD
 2. Run `vsts-npm-auth -config .npmrc` where the .npmrc file is located
 
-Detailed explanation can be found [here](https://nextimeai.visualstudio.com/Nextime.ai%20DatePicker/_artifacts/feed/QPilot.cloud/connect)
+Detailed explanation can be found [here](https://nextimeai.visualstudio.com/Nextime.ai%20DatePicker/_artifacts/feed/Nextime/connect)
 
 ### Others
 
-Detailed explanation for other machines be found [here](https://nextimeai.visualstudio.com/Nextime.ai%20DatePicker/_artifacts/feed/QPilot.cloud) in the "Other" secion.
+Detailed explanation for other machines be found [here](https://nextimeai.visualstudio.com/Nextime.ai%20DatePicker/_artifacts/feed/Nextime) in the "Other" secion.
 
-# Change NPM package reference
+# Change NPM package referenceNextime
 
 For instance, if you want to test Nextime components changes in a controlled environment we have our custom feed that help us through it!
 
