@@ -135,108 +135,7 @@ export class SiteComponent {
   };
 
   mockData: shippingData = {
-    1: {
-      addresses: [
-        {
-          street: "1002 E. 14th St",
-          city: "Chanute",
-          state: "KS",
-          country: "US",
-          postalCode: "66720",
-          name: "1002 E. 14th St, 66720"
-        },
-        {
-          street: "630 Addison Ave W.",
-          city: "Twin Falls",
-          state: "ID",
-          country: "US",
-          postalCode: "83301",
-          name: "630 Addison Ave W., 83301"
-        },
-      ],
-      orders: [
-        {
-          orderId: '1001',
-          items: [
-            {
-              id: 571386,
-              productId: '461150',
-              qty: 1,
-              regularPrice: 11.99,
-              salePrice: 11.99,
-              imageUrl: 'https://gardencup.com/cdn/shop/products/OG-Southwest_2d706604-aeb2-453f-be82-5248647d7eaf_600x.jpg?v=1677718723',
-              title: 'Southwest w/Fajita Chicken',
-              description: 'Southwest w/Fajita Chicken',
-            },
-            {
-              id: 840998,
-              productId: '426480',
-              qty: 1,
-              regularPrice: 11.99,
-              salePrice: 11.99,
-              imageUrl: 'https://gardencup.com/cdn/shop/products/OG-Cobb_600x.jpg?v=1673581686',
-              title: 'Chicken Bacon Cobb',
-              description: 'Chicken Bacon Cobb',
-            },
-            {
-              id: 840999,
-              productId: '4026',
-              qty: 1,
-              regularPrice: 11.99,
-              salePrice: 11.99,
-              imageUrl: 'https://gardencup.com/cdn/shop/files/AsianChoppedNoOranges_600x.png?v=1716476049',
-              title: 'Asian Chopped w/Honey Garlic Chicken',
-              description: 'Asian Chopped w/Honey Garlic Chicken',
-            },
-            {
-              id: 840999,
-              productId: '4026',
-              qty: 1,
-              regularPrice: 11.99,
-              salePrice: 11.99,
-              imageUrl: 'https://gardencup.com/cdn/shop/products/OG-Caesar_6a58b52b-b05b-4a85-bb47-43b987a5fb35_600x.jpg?v=1677709305',
-              title: 'Caesar w/Grilled Chicken',
-              description: 'Caesar w/Grilled Chicken',
-            },
-            {
-              id: 840999,
-              productId: '4026',
-              qty: 1,
-              regularPrice: 11.99,
-              salePrice: 11.99,
-              imageUrl: 'https://gardencup.com/cdn/shop/products/OG-Medi_836bfa21-1229-4ff6-b9d4-1d3dc863c818_600x.jpg?v=1677717918',
-              title: 'Mediterranean w/Grilled Chicken',
-              description: 'Mediterranean w/Grilled Chicken',
-            },
-            {
-              id: 840999,
-              productId: '4026',
-              qty: 1,
-              regularPrice: 11.99,
-              salePrice: 11.99,
-              imageUrl: 'https://gardencup.com/cdn/shop/products/OG-Caprese_fd051ca1-1a7b-4a26-b64a-fbf21334723a_600x.jpg?v=1677711665',
-              title: 'Caprese w/Grilled Chicken',
-              description: 'Caprese w/Grilled Chicken',
-            }
-          ],
-        },
-        {
-          orderId: '1002',
-          items: [
-            {
-              id: 840999,
-              productId: '4026',
-              qty: 1,
-              regularPrice: 11.99,
-              salePrice: 11.99,
-              imageUrl: '',
-              title: 'Ritual  Green',
-              description: 'Ritual Greens',
-            },
-          ],
-        },
-      ],
-    },
+    1: this.beautyLoopMockData,
     3: this.beautyLoopMockData,
     4: this.beautyLoopMockData,
     5: {
@@ -269,7 +168,7 @@ export class SiteComponent {
       ],
     },
     7: this.beautyLoopMockData,
-    28: {
+    13: {
       addresses: [
         {
           street: "1002 E. 14th St",
