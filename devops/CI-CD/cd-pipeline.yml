@@ -11,14 +11,14 @@ resources:
       type: GitHub
       name: patternsinthecloud/devops-templates
       ref: refs/heads/main
-      endpoint: Nextime.ai DatePicker
+      endpoint: service-connection-github
 
 pool:
   vmImage: "ubuntu-latest"
 stages:
   - template: templates/template.yml@devops-templates
     parameters:
-      azureSubscriptionServiceConnection: sc-nextime-dev
+      azureSubscriptionServiceConnection: sc-rg-dev-nextime
       pathToPublish: dist/qpilot-delivery-date-angular
       appType: staticWebApp
       skipGitleaks: true
