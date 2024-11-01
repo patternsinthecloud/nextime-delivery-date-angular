@@ -69,6 +69,10 @@ export const flatRateRequestDemoData: NextimeRequest = {
   ],
 };
 
+export const uspsRateRequestDemoData: NextimeRequest = flatRateRequestDemoData;
+
+export const shipperHqRequestDemoData: NextimeRequest = flatRateRequestDemoData;
+
 export const gardenCupRequestDemoData: NextimeRequest = {
   addresses: [
     {
