@@ -2,7 +2,7 @@
   <h1>
     My Subscription Box:
     <select *ngIf="siteId" [(ngModel)]="selectedOrder">
-      <option *ngFor="let order of mockData[siteId].orders" [ngValue]="order">
+      <option *ngFor="let order of sitesData.orders" [ngValue]="order">
         {{ order.orderId }}
       </option>
     </select>
@@ -15,26 +15,17 @@
         Your next order will be processed on
         <mat-form-field appearance="fill">
           <mat-label>Choose a date</mat-label>
-          <input
-            matInput
-            [matDatepicker]="picker"
-            [formControl]="date"
-            (dateChange)="handleProcessingDateChange($event)"
-          />
-          <mat-datepicker-toggle
-            matIconSuffix
-            [for]="picker"
-          ></mat-datepicker-toggle>
+          <input matInput [matDatepicker]="picker" [formControl]="date"
+            (dateChange)="handleProcessingDateChange($event)" />
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
       </p>
       <p>
         and delivered to
         <strong>{{ selectedAddress?.street }}</strong> on
-        <strong *ngIf="deliveryDate"
-          >{{ deliveryDate | date : "EEEE, MMMM d"
-          }}{{ deliveryDate | date : "d" | dateSuffix }}</strong
-        >
+        <strong *ngIf="deliveryDate">{{ deliveryDate | date : "EEEE, MMMM d"
+          }}{{ deliveryDate | date : "d" | dateSuffix }}</strong>
         <span *ngIf="!deliveryDate">no delivery date.</span>
       </p>
       <p *ngIf="deliveryDate">
@@ -56,10 +47,7 @@
       <tbody>
         <tr *ngIf="siteId === 8">
           <td>
-            <img
-              style="width: 120px; height: 120px"
-              src="assets/images/image2.png"
-            />
+            <img style="width: 120px; height: 120px" src="assets/images/image2.png" />
           </td>
           <td>
             <p>Juice Cleanse Subscription</p>
@@ -92,26 +80,19 @@
         <span>{{ getTotal() | currency : "USD" : "symbol" : "1.2-2" }}</span>
       </div>
       <div class="total-row">
-        <span
-          >Shipping
-          <span class="total-thin"
-            >({{ returnedObject?.shippingLine?.shippingMethod }})</span
-          ></span
-        >
+        <span>Shipping
+          <span class="total-thin">({{ returnedObject?.shippingLine?.shippingMethod }})</span></span>
         <span>{{
           returnedObject?.shippingLine?.total
-            | currency : "USD" : "symbol" : "1.2-2"
-        }}</span>
+          | currency : "USD" : "symbol" : "1.2-2"
+          }}</span>
       </div>
-      <div
-        *ngIf="returnedObject?.shippingLine as shippingLine"
-        class="total-row"
-      >
+      <div *ngIf="returnedObject?.shippingLine as shippingLine" class="total-row">
         <span>Total</span>
         <span>{{
           shippingLine.total + getTotal()
-            | currency : "USD" : "symbol" : "1.2-2"
-        }}</span>
+          | currency : "USD" : "symbol" : "1.2-2"
+          }}</span>
       </div>
     </div>
   </div>
@@ -120,8 +101,7 @@
     <div class="deliver-box">
       Deliver Every: 2 Weeks
       <div class="chevron">
-        <div
-          style="
+        <div style="
             width: 14.85px;
             height: 0px;
             left: 0px;
@@ -130,10 +110,8 @@
             transform: rotate(45deg);
             transform-origin: 0 0;
             border: 1px black solid;
-          "
-        ></div>
-        <div
-          style="
+          "></div>
+        <div style="
             width: 14.85px;
             height: 0px;
             left: 21px;
@@ -142,8 +120,7 @@
             transform: rotate(135deg);
             transform-origin: 0 0;
             border: 1px black solid;
-          "
-        ></div>
+          "></div>
       </div>
     </div>
     <div class="ships-to-box">
@@ -152,23 +129,16 @@
       </h2>
       <p>Ships To:</p>
       <select *ngIf="siteId" [(ngModel)]="selectedAddress">
-        <option
-          *ngFor="let address of mockData[siteId].addresses"
-          [ngValue]="address"
-        >
+        <option *ngFor="let address of sitesData.addresses" [ngValue]="address">
           {{ address.name || "Address" }}
         </option>
       </select>
     </div>
-    <nextime-delivery-date
-      *ngIf="selectedOrderDate && siteId && selectedAddress && selectedOrder"
-      [orderDate]="selectedOrderDate"
-      [siteId]="siteId"
-      [shippingAddress]="selectedAddress | json"
-      [order]="selectedOrder | json"
-      [apiReadonlyToken]="apiReadonlyToken"
-      (onDateUpdate)="handleDateUpdate($event)"
-    ></nextime-delivery-date>
+    <nextime-delivery-date *ngIf="selectedOrderDate && siteId && selectedAddress && selectedOrder"
+      [orderDate]="selectedOrderDate" [siteId]="siteId" [shippingAddress]="selectedAddress | json"
+      [order]="selectedOrder | json" overrideBaseUrl="https://functions-nextime-prod-centralus.azurewebsites.net/api"
+      apiReadOnlyToken="" (onDateUpdate)="handleDateUpdate($event)">
+    </nextime-delivery-date>
   </div>
 </div>
 <button *ngIf="returnedObject" class="json-button" (click)="toggleJson()">
