@@ -10,21 +10,39 @@ export const flatRateRequestDemoData: NextimeRequest = {
       postalCode: '06277',
       name: '5193 Old Post Rd',
     },
+    {
+      street: '123 Main St',
+      city: 'Pittsburgh',
+      state: 'RI',
+      country: 'US',
+      postalCode: '15000',
+      name: '123 Main St',
+    },
   ],
   orders: [
     {
-      orderId: '2002',
+      orderId: '1001',
       items: [
         {
           id: 773779,
           productId: '4026',
           qty: 1,
-          regularPrice: 81.0,
-          salePrice: 76.95,
-          imageUrl: 'assets/images/image6.png',
-          title: 'BAMBOO Eau de Parfum 1 oz.',
+          regularPrice: 10.75,
+          salePrice: 11.75,
+          imageUrl: 'assets/images/Green-Lemonade-1.jpg',
+          title: 'Green Lemonade',
+          description: 'Keep Refrigerated | Consume within 3 days of receiving',
+        },
+        {
+          id: 946054,
+          productId: '426480',
+          qty: 1,
+          regularPrice: 8.75,
+          salePrice: 9.75,
+          imageUrl: 'assets/images/orange-juice.jpg',
+          title: 'Orange Juice',
           description:
-            "Strong and graceful, one of GUCCI's most recognizable design signatures has defined references in today's GUCCI woman.",
+            'Straight up Orange Juice! Nothing like the standard store-bought stuff.',
         },
         {
           id: 946054,
@@ -32,15 +50,14 @@ export const flatRateRequestDemoData: NextimeRequest = {
           qty: 1,
           regularPrice: 27.55,
           salePrice: 27.55,
-          imageUrl: 'assets/images/image5.png',
-          title: 'Le Labo Shampoo 8.5 oz',
-          description:
-            'A thick, rich, deeply nourishing shampoo. This plant-based formula is made with macadamia to repair.',
+          imageUrl: 'assets/images/Get-Your-Glow-2.jpg',
+          title: 'Get Your Glow',
+          description: 'Keep Refrigerated | Consume within 3 days of receiving',
         },
       ],
     },
     {
-      orderId: '2001',
+      orderId: '1002',
       items: [
         {
           id: 804091,
@@ -64,6 +81,17 @@ export const flatRateRequestDemoData: NextimeRequest = {
           description:
             'Helps to effectively detoxify the pores. Oil free and anti wrinkle technology.',
         },
+        {
+          id: 1029226,
+          productId: '426480',
+          qty: 1,
+          regularPrice: 81.0,
+          salePrice: 76.95,
+          imageUrl: 'assets/images/image6.png',
+          title: 'BAMBOO Eau de Parfum 1 oz.',
+          description:
+            "Strong and graceful, one of GUCCI's most recognizable design signatures has defined references in today's GUCCI woman.",
+        },
       ],
     },
   ],
@@ -81,7 +109,7 @@ export const gardenCupRequestDemoData: NextimeRequest = {
       state: 'PA',
       country: 'US',
       postalCode: '15000',
-      name: 'SUN > MW LH: IND FEX	- 1.a',
+      name: '123 Main St',
     },
     {
       street: '456 Elm St',
@@ -89,7 +117,7 @@ export const gardenCupRequestDemoData: NextimeRequest = {
       state: 'AK',
       country: 'US',
       postalCode: '00500',
-      name: 'SUN > MW LH: IND FEX	- 1.b',
+      name: '456 Elm St',
     },
     {
       street: '789 Maple Ave',
@@ -97,7 +125,7 @@ export const gardenCupRequestDemoData: NextimeRequest = {
       state: 'UT',
       country: 'US',
       postalCode: '84003',
-      name: 'SAT > West LH: LAS → RNO	- 5.a',
+      name: '789 Maple Ave',
     },
     {
       street: '101 Oak Dr',
@@ -105,7 +133,7 @@ export const gardenCupRequestDemoData: NextimeRequest = {
       state: 'AZ',
       country: 'US',
       postalCode: '86001',
-      name: 'SAT > West LH: LAS → RNO	- 5.c',
+      name: '101 Oak Dr',
     },
     {
       street: '202 Pine Ln',
@@ -113,7 +141,7 @@ export const gardenCupRequestDemoData: NextimeRequest = {
       state: 'ID',
       country: 'US',
       postalCode: '83301',
-      name: 'SAT > West LH: LAS → RNO - 5.d',
+      name: '202 Pine Ln',
     },
     {
       street: '303 Birch Rd',
@@ -121,7 +149,7 @@ export const gardenCupRequestDemoData: NextimeRequest = {
       state: 'KS',
       country: 'US',
       postalCode: '66710',
-      name: 'MON > DAL FEX - 2.a',
+      name: '303 Birch Rd',
     },
     {
       street: '404 Cedar St',
@@ -129,7 +157,7 @@ export const gardenCupRequestDemoData: NextimeRequest = {
       state: 'SC',
       country: 'US',
       postalCode: '29002',
-      name: 'MON > DAL FEX - 2.b',
+      name: '404 Cedar St',
     },
     {
       street: '505 Spruce Way',
@@ -137,7 +165,7 @@ export const gardenCupRequestDemoData: NextimeRequest = {
       state: 'MA',
       country: 'US',
       postalCode: '02535',
-      name: 'MON > DAL FEX.E - 2.c',
+      name: '505 Spruce Way',
     },
     {
       street: '606 Aspen Blvd',
@@ -145,7 +173,7 @@ export const gardenCupRequestDemoData: NextimeRequest = {
       state: 'NC',
       country: 'US',
       postalCode: '28702',
-      name: 'FRI > East LH: NSH ONT - 3.a',
+      name: '606 Aspen Blvd',
     },
     {
       street: '707 Chestnut Ct',
@@ -153,7 +181,7 @@ export const gardenCupRequestDemoData: NextimeRequest = {
       state: 'MA',
       country: 'US',
       postalCode: '01001',
-      name: 'FRI > East LH: NSH ONT	- 3.b',
+      name: '707 Chestnut Ct',
     },
     {
       street: '808 Walnut Cir',
@@ -161,7 +189,7 @@ export const gardenCupRequestDemoData: NextimeRequest = {
       state: 'OK',
       country: 'US',
       postalCode: '73003',
-      name: 'SAT > DAL VEH - 4.a',
+      name: '808 Walnut Cir',
     },
     {
       street: '909 Cypress Pl',
@@ -169,7 +197,7 @@ export const gardenCupRequestDemoData: NextimeRequest = {
       state: 'NC',
       country: 'US',
       postalCode: '27014',
-      name: 'SAT > DAL VEH - 4.b',
+      name: '909 Cypress Pl',
     },
   ],
   orders: [
@@ -179,7 +207,7 @@ export const gardenCupRequestDemoData: NextimeRequest = {
         {
           id: 123456,
           productId: '123456',
-          qty: 1,
+          qty: 2,
           regularPrice: 11.99,
           salePrice: 11.99,
           imageUrl:
@@ -190,7 +218,7 @@ export const gardenCupRequestDemoData: NextimeRequest = {
         {
           id: 123457,
           productId: '123457',
-          qty: 1,
+          qty: 2,
           regularPrice: 11.99,
           salePrice: 11.99,
           imageUrl:
@@ -201,7 +229,7 @@ export const gardenCupRequestDemoData: NextimeRequest = {
         {
           id: 123458,
           productId: '123458',
-          qty: 1,
+          qty: 2,
           regularPrice: 11.99,
           salePrice: 11.99,
           imageUrl:
@@ -209,21 +237,15 @@ export const gardenCupRequestDemoData: NextimeRequest = {
           title: 'Asian Chopped w/Honey Garlic Chicken',
           description: 'Asian Chopped w/Honey Garlic Chicken',
         },
-        {
-          id: 123459,
-          productId: '123459',
-          qty: 1,
-          regularPrice: 11.99,
-          salePrice: 11.99,
-          imageUrl:
-            'https://gardencup.com/cdn/shop/products/OG-Caesar_6a58b52b-b05b-4a85-bb47-43b987a5fb35_600x.jpg?v=1677709305',
-          title: 'Caesar w/Grilled Chicken',
-          description: 'Caesar w/Grilled Chicken',
-        },
+      ],
+    },
+    {
+      orderId: '1001',
+      items: [
         {
           id: 123460,
           productId: '123460',
-          qty: 1,
+          qty: 4,
           regularPrice: 11.99,
           salePrice: 11.99,
           imageUrl:
@@ -234,7 +256,7 @@ export const gardenCupRequestDemoData: NextimeRequest = {
         {
           id: 123461,
           productId: '123461',
-          qty: 1,
+          qty: 2,
           regularPrice: 11.99,
           salePrice: 11.99,
           imageUrl:
