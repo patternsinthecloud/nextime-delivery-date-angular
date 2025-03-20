@@ -50,7 +50,7 @@ export class SiteComponent {
 
   getOlderDay(date: string | undefined) {
     if (!date) return '';
-    const newDate = moment.utc(date).subtract(1, 'd').format('dddd');
+    const newDate = moment.utc(date).subtract(1, 'd').format('dddd DD');
     return newDate;
   }
 
@@ -60,6 +60,7 @@ export class SiteComponent {
       if (evt.detail.deliveryDate) {
         this.deliveryDate = moment
           .utc(evt.detail.deliveryDate)
+          .subtract(1, 'days')
           .format('YYYY-MM-DD');
       } else {
         this.deliveryDate = undefined;
