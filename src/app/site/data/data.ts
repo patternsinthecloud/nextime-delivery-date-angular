@@ -3,6 +3,14 @@ import { NextimeRequest } from 'src/app/models/nextimeRequest.dto';
 export const flatRateRequestDemoData: NextimeRequest = {
   addresses: [
     {
+      street: '10 Sims Ave',
+      city: 'Providence',
+      state: 'RI',
+      country: 'US',
+      postalCode: '02909',
+      name: 'Local Pickup at Farm Fresh Sims Market',
+    },
+    {
       street: '5193 Old Post Rd',
       city: 'Charlestown',
       state: 'RI',
@@ -10,14 +18,14 @@ export const flatRateRequestDemoData: NextimeRequest = {
       postalCode: '06277',
       name: '5193 Old Post Rd',
     },
-    {
-      street: '123 Main St',
-      city: 'Pittsburgh',
-      state: 'RI',
-      country: 'US',
-      postalCode: '15000',
-      name: '123 Main St',
-    },
+    // {
+    //   street: '397 Boston Post Rd',
+    //   city: 'Wayland',
+    //   state: 'MA',
+    //   country: 'US',
+    //   postalCode: '01778',
+    //   name: 'Local Pickup at Wayland Winter Market',
+    // },
   ],
   orders: [
     {
@@ -27,8 +35,8 @@ export const flatRateRequestDemoData: NextimeRequest = {
           id: 773779,
           productId: '4026',
           qty: 1,
-          regularPrice: 10.75,
-          salePrice: 11.75,
+          regularPrice: 12.5,
+          salePrice: 15.75,
           imageUrl: 'assets/images/Green-Lemonade-1.jpg',
           title: 'Green Lemonade',
           description: 'Keep Refrigerated | Consume within 3 days of receiving',
@@ -37,8 +45,8 @@ export const flatRateRequestDemoData: NextimeRequest = {
           id: 946054,
           productId: '426480',
           qty: 1,
-          regularPrice: 8.75,
-          salePrice: 9.75,
+          regularPrice: 12.75,
+          salePrice: 15.75,
           imageUrl: 'assets/images/orange-juice.jpg',
           title: 'Orange Juice',
           description:
@@ -48,8 +56,8 @@ export const flatRateRequestDemoData: NextimeRequest = {
           id: 946054,
           productId: '426480',
           qty: 1,
-          regularPrice: 27.55,
-          salePrice: 27.55,
+          regularPrice: 12.55,
+          salePrice: 15.55,
           imageUrl: 'assets/images/Get-Your-Glow-2.jpg',
           title: 'Get Your Glow',
           description: 'Keep Refrigerated | Consume within 3 days of receiving',
@@ -60,37 +68,14 @@ export const flatRateRequestDemoData: NextimeRequest = {
       orderId: '1002',
       items: [
         {
-          id: 804091,
+          id: 773779,
           productId: '4026',
           qty: 1,
-          regularPrice: 29.0,
-          salePrice: 29.0,
-          imageUrl: 'assets/images/image7.png',
-          title: 'It Cosmetics Confidence in a Cleanser',
-          description:
-            'Suitable for all skin types, this is a revolutionary one-step, hydrating cleanser that melts away dirt, oil, and makeup.',
-        },
-        {
-          id: 1029226,
-          productId: '426480',
-          qty: 1,
-          regularPrice: 39.0,
-          salePrice: 36.0,
-          imageUrl: 'assets/images/image8.png',
-          title: 'Anti-Aging Cleansing Gel 8.5 oz',
-          description:
-            'Helps to effectively detoxify the pores. Oil free and anti wrinkle technology.',
-        },
-        {
-          id: 1029226,
-          productId: '426480',
-          qty: 1,
-          regularPrice: 81.0,
-          salePrice: 76.95,
-          imageUrl: 'assets/images/image6.png',
-          title: 'BAMBOO Eau de Parfum 1 oz.',
-          description:
-            "Strong and graceful, one of GUCCI's most recognizable design signatures has defined references in today's GUCCI woman.",
+          regularPrice: 2.5,
+          salePrice: 5.75,
+          imageUrl: 'assets/images/Rise-and-Shine.jpg',
+          title: 'From the Earth',
+          description: '',
         },
       ],
     },
@@ -99,7 +84,70 @@ export const flatRateRequestDemoData: NextimeRequest = {
 
 export const uspsRateRequestDemoData: NextimeRequest = flatRateRequestDemoData;
 
-export const shipperHqRequestDemoData: NextimeRequest = flatRateRequestDemoData;
+export const shipperHqRequestDemoData: NextimeRequest = {
+  addresses: [
+    {
+      street: '3000 Reed Street',
+      city: 'Wheat Ridge',
+      state: 'CO',
+      country: 'US',
+      postalCode: '80033',
+      name: '3000 Reed Street',
+    },
+  ],
+  orders: [
+    {
+      orderId: '2001',
+      items: [
+        {
+          id: 773779,
+          productId: '4026',
+          qty: 1,
+          regularPrice: 27.0,
+          salePrice: 29.0,
+          imageUrl: 'assets/images/it-cosmetics.png',
+          title: 'It Cosmetics Confidence in a Cleanser',
+          description: '',
+        },
+        {
+          id: 946054,
+          productId: '122',
+          qty: 1,
+          regularPrice: 28.0,
+          salePrice: 29.0,
+          imageUrl: 'assets/images/anti-aging.png',
+          title: 'Anti-Aging Cleasing Get 8.5 oz',
+          description: '',
+        },
+      ],
+    },
+    {
+      orderId: '2002',
+      items: [
+        {
+          id: 773779,
+          productId: '4026',
+          qty: 1,
+          regularPrice: 75.95,
+          salePrice: 76.95,
+          imageUrl: 'assets/images/bamboo.png',
+          title: 'BAMBOO Eau de Parfum 1 oz.',
+          description: '',
+        },
+        {
+          id: 946054,
+          productId: '122',
+          qty: 1,
+          regularPrice: 26.55,
+          salePrice: 27.55,
+          imageUrl: 'assets/images/le-labo.png',
+          title: 'Le labo Shampoo 8.5 oz',
+          description: '',
+        },
+      ],
+    },
+  ],
+};
 
 export const gardenCupRequestDemoData: NextimeRequest = {
   addresses: [
