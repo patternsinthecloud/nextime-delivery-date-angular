@@ -60,7 +60,6 @@ export class SiteComponent {
       if (evt.detail.deliveryDate) {
         this.deliveryDate = moment
           .utc(evt.detail.deliveryDate)
-          .subtract(1, 'days')
           .format('YYYY-MM-DD');
       } else {
         this.deliveryDate = undefined;
