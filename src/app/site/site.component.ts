@@ -24,6 +24,7 @@ export class SiteComponent {
   selectedAddress: Address | undefined;
   selectedOrder: Order | undefined;
   selectedOrderDate: string | undefined;
+  selectedOrderDateForNextimeRequest: string | undefined;
   selectedDelivery: string | undefined;
   deliveryDate: string | undefined;
   date = new FormControl(new Date());
@@ -43,8 +44,11 @@ export class SiteComponent {
       this.selectedAddress = this.sitesData.addresses[0];
       this.selectedOrder = this.sitesData.orders[0];
       this.selectedOrderDate = moment(this.date.value)
-        .add('day')
         .format('YYYY-MM-DD[T]HH:mm:ss[Z]');
+
+      this.selectedOrderDateForNextimeRequest = moment(this.date.value)
+        .format('YYYY-MM-DD[T]HH:mm:ss[Z]');
+
     });
   }
 
@@ -72,6 +76,7 @@ export class SiteComponent {
     event: MatDatepickerInputEvent<moment.Moment, any>
   ) {
     this.selectedOrderDate = event.value?.format('YYYY-MM-DD[T]HH:mm:ss[Z]');
+    this.selectedOrderDateForNextimeRequest = event.value?.add(1, 'day').format('YYYY-MM-DD[T]HH:mm:ss[Z]');
   }
 
   toggleJson() {
