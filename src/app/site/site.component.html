@@ -134,8 +134,8 @@
         </option>
       </select>
     </div>
-    <nextime-delivery-date *ngIf="selectedOrderDate && siteId && selectedAddress && selectedOrder"
-      [orderDate]="selectedOrderDate" [siteId]="siteId" [shippingAddress]="selectedAddress | json"
+    <nextime-delivery-date *ngIf="selectedOrderDateForNextimeRequest && siteId && selectedAddress && selectedOrder"
+      [orderDate]="selectedOrderDateForNextimeRequest" [siteId]="siteId" [shippingAddress]="selectedAddress | json"
       [order]="selectedOrder | json" overrideBaseUrl="https://functions-nextime-prod-centralus.azurewebsites.net/api"
       apiReadOnlyToken="" (onDateUpdate)="handleDateUpdate($event)">
     </nextime-delivery-date>
