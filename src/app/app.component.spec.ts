@@ -1,12 +1,27 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ActivatedRoute, ParamMap, convertToParamMap } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 describe('AppComponent', () => {
+  let paramMapSubject: BehaviorSubject<ParamMap>;
+  let mockActivatedRoute: { paramMap: BehaviorSubject<ParamMap> };
+
   beforeEach(async () => {
+    paramMapSubject = new BehaviorSubject<ParamMap>(
+      convertToParamMap({ id: '1' })
+    );
+    mockActivatedRoute = {
+      paramMap: paramMapSubject
+    };
+
     await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
+      imports: [RouterTestingModule],
+      declarations: [AppComponent],
+      providers: [
+        { provide: ActivatedRoute, useValue: mockActivatedRoute }
+      ]
     }).compileComponents();
   });
 
@@ -22,10 +37,14 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('nextime-delivery-date-angular');
   });
 
-  it('should render title', () => {
+  it('should set siteId from route parameters', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('nextime-delivery-date-angular app is running!');
+
+    const app = fixture.componentInstance;
+    expect(app.siteId).toEqual(1);
+
+    paramMapSubject.next(convertToParamMap({ id: '2' }));
+    expect(app.siteId).toEqual(2);
   });
 });
